@@ -14,6 +14,9 @@ const logger = require("morgan");
 //set up path
 const port = process.env.PORT || 3001;
 
+//set up router
+var router = express.Router();
+
 //set up logger
 app.use(logger('dev'));
 
@@ -25,10 +28,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.urlencoded());
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.use(express.static(__dirname));
 
 //setting up mongodb
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/my_database';
+//var mongoDB = 'mongodb://127.0.0.1/my_database';
 //mongoose.connect(mongoDB, { useNewUrlParser: true });
 
 //Get the default connection
@@ -109,24 +113,49 @@ function queryData(){
     });
 }
 
-app.use("/", (req, res, next) => {
-    console.log(__dirname);
-    const route = path.join(__dirname, "/views/index.html");
-    console.log(route);
-    res.sendFile(route);
-});
+app.use('/login', (req, res, next) => {
+    console.log('here login')
+    const route1 = path.join(__dirname, '/views/login.html');
+    res.sendFile(route1);
+})
 
-app.post('/test', (req, res) => {
+app.use('/test', (req, res, next) => {
     console.log("1: " + res);
     console.log("2: " + req);
-    console.log("This is: " + res.body.test);
-    
+    console.log("This is: " + req.body.test);
+    res.redirect("/");
 });
 
-app.get('/test', urlencodedParser, (req, res, next) => {
-    console.log(req.body.test);
-    console.log(req.params.name);
+app.use("/", (req, res, next) => {
+    console.log(__dirname);
+    console.log("In index");
+    const route = path.join(__dirname, "/views/main.html");
+    console.log(route);
+    res.sendFile(route);   
 });
+
+// app.use('/login', (req, res, next) => {
+//     console.log('here login')
+//     const route1 = path.join(__dirname, '/views/login.html');
+//     res.sendFile(route1);
+// })
+
+// app.post('/test', (req, res) => {
+//     console.log("1: " + res);
+//     console.log("2: " + req);
+//     console.log("This is: " + res.body.test);
+    
+// });
+
+// app.get('/test', urlencodedParser, (req, res, next) => {
+//     console.log(req.body.test);
+//     console.log(req.params.name);
+// });
+
+// app.use('/login', (req, res) => {
+//     const route = path.join(__dirname, "/views/login.html");
+//     res.sendFile(route);
+// })
 
 app.listen(port, () => {
     console.log("Connecting to port");
