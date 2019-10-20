@@ -6,6 +6,7 @@ function NavBar() {
     <a className="active" href="/Landing">Home</a>
     <a href="/Carpools">Carpools</a>
     <a href="/Apply">Apply</a>
+    <a href="/">Sign Out</a>
   </div>
 }
 
