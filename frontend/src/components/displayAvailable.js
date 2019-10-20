@@ -6,7 +6,7 @@ function DisplayAvailable() {
     return <div className="form-style-9">
         <ul>
             {state.map((temp) => {
-                return <li>{temp}</li>
+                return <li><span className="align-left">{temp}</span> <a className="align-right" href="">Join Car</a></li>
             })}
         </ul>
     </div>

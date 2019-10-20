@@ -55,7 +55,13 @@ body{
   height: 100%;
 }
 
-a{
+.contentCard a{
   text-decoration: none;
   color: black;
+}
+.align-right{
+  float:right;
+}
+.align-left{
+  float:left;
 }
