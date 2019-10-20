@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -10,8 +9,8 @@ import {
 import UserForm from "./components/Form";
 import NavBar from "./components/NavBar";
 import DisplayAvailable from "./components/displayAvailable";
-import EventsList from "./components/EventsList";
-
+import EventsComponent from './components/EventsComponent';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -19,11 +18,10 @@ function App() {
       <NavBar></NavBar>
       <Router>
           <Switch>
-            <Route exact path='/' component={UserForm} />
-            {/* both /roster and /roster/:number begin with /roster */}
-            <Route path='/Carpools' component={DisplayAvailable} />
-            <Route path='/Events' component={EventsList} />
-
+            <Route exact path='/' component={Login} />
+            <Route exact path='/Landing' component={EventsComponent} />
+            <Route exact path='/Carpools' component={DisplayAvailable} />
+            <Route exact path='/Apply' component={UserForm} />
           </Switch>
       </Router>
     </div>
