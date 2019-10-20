@@ -1,12 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import './cssSheets/userformstyle.css'
 
 
@@ -58,6 +51,7 @@ function EventsList() {
         {name:'Hack@CEWIT', date: 'Feb 14th - 16th', city:'Stony Brook', state: 'NY', image: 'https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/001/273/thumb/Untitled_design_%282%29.png?1567625878'},
         {name:'PickHacks', date: 'Apr 3rd - 5th', city:'Rolla', state: 'MO', image: 'https://s3.amazonaws.com/assets.mlh.io/events/splashes/000/001/198/thumb/Havener_Center_2_%281%29.png?1557420669'},
     ];
+
     return (<div className="form-style-10">
             {events.map((temp) => {
                 return  <div className="contentCard">

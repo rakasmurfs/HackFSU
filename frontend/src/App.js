@@ -9,8 +9,10 @@ import {
 import UserForm from "./components/Form";
 import NavBar from "./components/NavBar";
 import DisplayAvailable from "./components/displayAvailable";
-import EventsComponent from './components/EventsComponent';
+import EventsList from './components/EventsList';
 import Login from './components/Login';
+import OrgDashboard from './components/OrgDashboard';
+
 
 function App() {
   return (
@@ -19,9 +21,10 @@ function App() {
       <Router>
           <Switch>
             <Route exact path='/' component={Login} />
-            <Route exact path='/Landing' component={EventsComponent} />
+            <Route exact path='/Landing' component={EventsList} />
             <Route exact path='/Carpools' component={DisplayAvailable} />
             <Route exact path='/Apply' component={UserForm} />
+            <Route exact path='/OrgDashboard' component={OrgDashboard} />
           </Switch>
       </Router>
     </div>
