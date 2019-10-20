@@ -22,7 +22,8 @@ function App() {
           <Switch>
             <Route exact path='/' component={Login} />
             <Route exact path='/Landing' component={EventsList} />
-            <Route exact path='/Carpools' component={DisplayAvailable} />
+            <Route exact path='/Carpools' component={DisplayAvailable} /*render={(props) => <DisplayAvailable count={props.match.params.count}></DisplayAvailable>} *//>
+            <Route exact path='/Carpools/car/:count' component={props => <DisplayAvailable id={props.match.params.count}/>} />
             <Route exact path='/Apply' component={UserForm} />
             <Route exact path='/OrgDashboard' component={OrgDashboard} />
           </Switch>

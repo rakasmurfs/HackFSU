@@ -19,6 +19,11 @@ class DisplayAvailable extends React.Component {
             carpoolInfo: []
         }
     }
+    // componentDidMount(){
+    //     if(this.state.count >= 1){
+    //         this.setState({carpoolInfo: [...this.state.carpoolInfo[0].riders, {'name': 'rider 3' }]});
+    //     }
+    // }
 
     componentWillMount() {
         // tis should be replaced with a call to the server endpoint
@@ -46,6 +51,11 @@ class DisplayAvailable extends React.Component {
                 ]
             }
         ]})
+    }
+
+    registerNew = (info) => {
+        
+        this.setState({carpoolInfo: [...this.state.carpoolInfo[0].riders, {'name': 'rider 3' }]});
     }
 
     render() {

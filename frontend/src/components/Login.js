@@ -69,8 +69,9 @@ class Login extends React.Component {
         return(
             <div>
                 <div className="login">
+                    <h1>CarpoolNow</h1>
                     <h3>Login</h3>
-                    <input type="text" placeholder="Username" value={this.state.email} onChange={this.enterEmail}></input>
+                    <input type="text" placeholder="Username" type="email" value={this.state.email} onChange={this.enterEmail}></input>
                     <input type="text" placeholder="Password" value={this.state.password} onChange={this.enterPassword}></input>
                     <select aria-label="Type of User" id="type" value={this.state.typeOfUser} onClick={this.selectUser}>
                         <option>Attendee</option>

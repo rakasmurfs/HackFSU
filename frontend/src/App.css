@@ -86,8 +86,8 @@ body{
   display:inline-block;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
   margin-top: 20px;
-
-.login {
+}
+.login{
   max-width: 450px;
   background: #FAFAFA;
   padding: 30px;
@@ -95,9 +95,7 @@ body{
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
   border: 6px solid #305A72;
-  
 }
-
 .login input {
   width: 300px;
   margin: 20px;

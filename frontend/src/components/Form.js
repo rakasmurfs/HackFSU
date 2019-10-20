@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './cssSheets/userformstyle.css'
 
 class UserForm extends React.Component {
@@ -62,7 +63,9 @@ class UserForm extends React.Component {
                         <input type="text" name="address" value={this.state.address} onChange={this.changeAddress} className="field-style field-full align-none" placeholder="Home Address" />
                     </li>
                     <li>
-                        <input type="submit" value="Submit" onClick={this.submit} />
+                        <Link to="/Carpools" params={{count: 1}}>
+                            <button type="submit" value="Submit" onClick={this.submit}></button>>
+                        </Link>
                     </li>
                 </ul>
             </form>

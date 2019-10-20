@@ -34,15 +34,7 @@ function OrgDashboard() {
         "Silvanus,McCurtain",
         "Sallyanne,Thorne",
         "Conny,Bertome",
-        "Joane,Lochet",
-        "Cami,Huxton",
-        "Gino,Facer",
-        "Reina,Eldrett",
-        "Chandal,Lillow",
-        "Marje,O'Sharkey",
-        "Becca,Seamen",
-        "Catrina,Disbrey",
-        "Kerby,Giovanazzi"
+        "Joane,Lochet"
     ];
 
     return (<div className="form-style-10">
