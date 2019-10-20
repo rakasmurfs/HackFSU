@@ -17,7 +17,12 @@
   color: white;
 }
 body{
+  min-width: 100vw;
+  min-height: 100vh;
   background-color: grey;
+  background-image:url('http://intellitech.pro/wp-content/uploads/2017/06/slide-3-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .form-style-9{
   max-width: 450px;
@@ -27,4 +32,30 @@ body{
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
   border: 6px solid #305A72;
+}
+.imageWrapper{
+  width:100%;
+  height:70%;
+}
+.textWrapper{
+  text-align:center;
+  width:100%;
+  height:20%;
+}
+.contentCard{
+  height: 250px;
+  width: 210px;
+  margin-right:35px;
+  display:inline-block;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+  margin-top: 20px;
+}
+.contentCard img{
+  width: 100%;
+  height: 100%;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }

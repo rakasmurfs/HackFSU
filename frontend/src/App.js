@@ -10,6 +10,8 @@ import {
 import UserForm from "./components/Form";
 import NavBar from "./components/NavBar";
 import DisplayAvailable from "./components/displayAvailable";
+import EventsList from "./components/EventsList";
+
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
             <Route exact path='/' component={UserForm} />
             {/* both /roster and /roster/:number begin with /roster */}
             <Route path='/Carpools' component={DisplayAvailable} />
+            <Route path='/Events' component={EventsList} />
+
           </Switch>
       </Router>
     </div>
