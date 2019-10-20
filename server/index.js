@@ -3,11 +3,13 @@ var express = require('express');
 var mongoose = require('mongoose');
 const MongoClient = require('mongodb').MongoClient;
 
+var testAPIRouter = require("./routes/testAPI");
+
 var app = express();
 var path = require('path');
 
 var http = require('http');
-const cors = require("cors");
+var cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 
@@ -53,25 +55,40 @@ mongoose.connect(uri
         console.log(err);
     });
 
-connectMongo =() => {
+function connectMongo() {
     const client = new MongoClient(uri, { useNewUrlParser: true });
+    let responseObject = [];
+    
     client.connect(err => {
         const collection = client.db("HackFSU").collection("Venue");
 
         // perform actions on the collection object
-        var responseObject = [];
+        // var responseObject = [];
 
         const newCursor = collection.find();
         newCursor.forEach(function(res){
-            responseObject.push(res)
+            //console.log(res);
+            responseObject.push(res);
+            //console.log(responseObject);
+            //responseObject = [...responseObject, res];
         });
+        //console.log(responseObject);
+        responseObject.map((test) => {
+            //console.log(test);
+        })
 
         client.close();
 
+        // return responseObject;
+        console.log(responseObject);
+        console.log("hi");
+        //return "hi";
         return responseObject;
     });
+    // console.log(responseObject);
+    //return responseObject;
 }
-connectMongo();
+// connectMongo();
 
 //set up schema
 //Define a schema
@@ -101,28 +118,39 @@ function getData(){
 function queryData(){
     db.collection('Venue').find().toArray(function(err, docs) {
 
-        //assert.equal(err, null);
-        //assert.notEqual(docs.length, 0);
-
         docs.forEach(function(doc) {
             console.log(doc.name + " is a " + doc.city + " company.");
         });
 
         db.close();
-
     });
 }
 
+app.use("/getData", async (req, res, next) => {
+    try {
+        let res = await VenueModel.find().exec(function(err, data) {
+            if (err) {
+                res.send("error")
+            }
+            res.send(data)
+        });
+        res.send("no");
+    }
+    catch(err){
+        console.log(err);
+    }
+})
+
+app.use("/testAPI", testAPIRouter);
+
 app.use('/login', (req, res, next) => {
-    console.log('here login')
+    console.log('In login');
     const route1 = path.join(__dirname, '/views/login.html');
     res.sendFile(route1);
 })
 
 app.use('/test', (req, res, next) => {
-    console.log("1: " + res);
-    console.log("2: " + req);
-    console.log("This is: " + req.body.test);
+    console.log("Form input: " + req.body.test);
     res.redirect("/");
 });
 
@@ -134,31 +162,40 @@ app.use("/", (req, res, next) => {
     res.sendFile(route);   
 });
 
-// app.use('/login', (req, res, next) => {
-//     console.log('here login')
-//     const route1 = path.join(__dirname, '/views/login.html');
-//     res.sendFile(route1);
-// })
-
-// app.post('/test', (req, res) => {
-//     console.log("1: " + res);
-//     console.log("2: " + req);
-//     console.log("This is: " + res.body.test);
-    
-// });
-
-// app.get('/test', urlencodedParser, (req, res, next) => {
-//     console.log(req.body.test);
-//     console.log(req.params.name);
-// });
-
-// app.use('/login', (req, res) => {
-//     const route = path.join(__dirname, "/views/login.html");
-//     res.sendFile(route);
-// })
-
 app.listen(port, () => {
-    console.log("Connecting to port");
+    console.log("Connecting to port " + port);
     getData();
     //queryData();
 });
+
+// const express = require('express');
+// const bodyparser = require('body-parser');
+// const mongoose = require("mongoose");
+
+// var app = express();
+
+// app.use(bodyparser.json());
+// app.use(bodyparser.urlencoded({extended:true}));
+
+// mongoose.connect("mongodb+srv://admin:admin@cluster0-acigc.mongodb.net/test?retryWrites=true&w=majority")
+
+// const VenueModel = mongoose.model("Venue", {
+//   name: String,
+//   date: String,
+//   city: String,
+//   state: String
+// }, {});
+
+// app.get("/venue", async(req, res, next) => {
+//     try{
+//         var result = await VenueModel.find().exec();
+//         res.send(result);
+//     }
+//     catch(err){
+//         console.log("failed");
+//     }
+// })
+
+// app.listen(3001, ()=>{
+//     console.log("Connected to port");
+// })
