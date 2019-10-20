@@ -10,6 +10,7 @@ import UserForm from "./components/Form";
 import NavBar from "./components/NavBar";
 import DisplayAvailable from "./components/displayAvailable";
 import EventsComponent from './components/EventsComponent';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
       <NavBar></NavBar>
       <Router>
           <Switch>
-            <Route exact path='/' component={EventsComponent} />
-            <Route path='/Carpools' component={DisplayAvailable} />
+            <Route exact path='/' component={Login} />
+            <Route exact path='/Landing' component={EventsComponent} />
+            <Route exact path='/Carpools' component={DisplayAvailable} />
             <Route exact path='/Apply' component={UserForm} />
           </Switch>
       </Router>
