@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import './cssSheets/userformstyle.css';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import { CardContent, Typography, Button } from '@material-ui/core';
-import axios from 'axios';
 import { Link } from "react-router-dom";
 
 /**

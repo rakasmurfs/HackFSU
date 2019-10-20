@@ -55,10 +55,37 @@ body{
   height: 100%;
 }
 
-a{
+.contentCard a{
   text-decoration: none;
   color: black;
 }
+.align-right{
+  float:right;
+}
+.align-left{
+  float:left;
+}
+.contendCardsWrapper{
+  margin:auto;
+}
+.adminCarpools{
+  height: 80%;
+  width: 350px;
+  margin-right:35px;
+  display:inline-block;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+  margin-top: 20px;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+.adminAttendees{
+  width: 350px;
+  padding-top:15px;
+  padding-bottom:15px;
+  margin-right:35px;
+  display:inline-block;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+  margin-top: 20px;
 
 .login {
   max-width: 450px;
